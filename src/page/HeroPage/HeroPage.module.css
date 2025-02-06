@@ -1,0 +1,19 @@
+.cardUserInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.cardUserInfo img {
+  width: 120px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cardUserInfo h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: 5px;
+}
