@@ -1,0 +1,13 @@
+.card {
+  background-color: hsl(217, 70.8%, 90.6%);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
+}
+
+.hover {
+  &.card:hover {
+    cursor: pointer;
+    background-color: hsl(217, 70.8%, 85%);
+  }
+}
