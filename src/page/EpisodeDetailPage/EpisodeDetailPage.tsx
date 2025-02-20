@@ -1,22 +1,40 @@
+import { useEffect } from 'react'
 import { useParams } from 'react-router'
+import { useFetch } from '../../shared/hook/useFetch'
 import { Card } from '../../shared/ui/Card/Card'
-import episodes from '../../data/episode.json'
+import { IEpisode } from '../EpisodePage/types'
 
 export function EpisodeDetailPage() {
   const { id } = useParams<{ id: string }>()
 
-  const episode = episodes.find(h => h.id === Number(id))
+  const { data, error, isLoading, sendRequest } = useFetch<IEpisode>(`https://rickandmortyapi.com/api/episode/${id}`)
 
-  if (!episode) {
-    return <h2>Эпизод не найдена</h2>
+  useEffect(() => {
+    sendRequest()
+  }, [])
+
+  if (isLoading) {
+    return <h2>Загрузка...</h2>
+  }
+
+  if (!data && !error) {
+    return <h2>Герой не найден</h2>
+  }
+
+  if (error) {
+    return <h2>Ошибка получения данных</h2>
   }
 
   return (
-    <Card hover={false}>
-      <p>Имя: {episode.name}</p>
-      <p>Выход в эфир: {new Date(episode.air_date).toLocaleString()}</p>
-      <p>Эпизод: {episode.episode}</p>
-      <p>Создан: {new Date(episode.created).toLocaleString()}</p>
-    </Card>
+    data && (
+      <Card hover={false}>
+        <p>Имя: {data.name}</p>
+        <p>Выход в эфир: {new Date(data.air_date).toLocaleString()}</p>
+        <p>Эпизод: {data.episode}</p>
+        <p>Создан: {new Date(data.created).toLocaleString()}</p>
+      </Card>
+    )
   )
 }
+
+export default EpisodeDetailPage

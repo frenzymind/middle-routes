@@ -1,14 +1,14 @@
 import { Navigate, Route, Routes } from 'react-router'
 import './App.css'
 import { MainLayout } from './layout/MainLayout'
-import { EpisodeDetailPage } from './page/EpisodeDetailPage/EpisodeDetailPage'
-import { EpisodePage } from './page/EpisodePage/EpisodePage'
-import { HeroDetailPage } from './page/HeroDetailPage/HeroDetailPage'
-import { HeroPage } from './page/HeroPage/HeroPage'
-import { LocationDetailPage } from './page/LocationDetailPage/LocationDetailPage'
-import { LocationPage } from './page/LocationsPage/LocationPage'
-import { LoginPage } from './page/LoginPage/LoginPage'
-import { MainPage } from './page/MainPage/MainPage'
+import { EpisodeDetailPageLazy } from './page/EpisodeDetailPage/EpisodeDetailPageLazy'
+import { EpisodePageLazy } from './page/EpisodePage/EpisodePageLazy'
+import { HeroDetailsPageLazy } from './page/HeroDetailPage/HeroDetailPageLazy'
+import { HeroPageLazy } from './page/HeroPage/HeroPageLazy'
+import { LocationDetailPageLazy } from './page/LocationDetailPage/LocationDetailPageLazy'
+import { LocationPageLazy } from './page/LocationsPage/LocationPageLazy'
+import { LoginPageLazy } from './page/LoginPage/LoginPageLazy'
+import { MainPageLazy } from './page/MainPage/MainPageLazy'
 import { useAuth } from './shared/providers/auth-provider/auth-context'
 
 function App() {
@@ -19,20 +19,20 @@ function App() {
   if (isAuth) {
     routes = (
       <>
-        <Route index element={<MainPage />} />
-        <Route path='heros' element={<HeroPage />} />
-        <Route path='hero/:id' element={<HeroDetailPage />} />
-        <Route path='locations' element={<LocationPage />} />
-        <Route path='location/:id' element={<LocationDetailPage />} />
-        <Route path='episodes' element={<EpisodePage />} />
-        <Route path='episode/:id' element={<EpisodeDetailPage />} />
+        <Route index element={<MainPageLazy />} />
+        <Route path='heros' element={<HeroPageLazy />} />
+        <Route path='hero/:id' element={<HeroDetailsPageLazy />} />
+        <Route path='locations' element={<LocationPageLazy />} />
+        <Route path='location/:id' element={<LocationDetailPageLazy />} />
+        <Route path='episodes' element={<EpisodePageLazy />} />
+        <Route path='episode/:id' element={<EpisodeDetailPageLazy />} />
         <Route path='*' element={<Navigate to={'/'} />} />
       </>
     )
   } else {
     routes = (
       <>
-        <Route index element={<LoginPage />} />
+        <Route index element={<LoginPageLazy />} />
         <Route path='*' element={<Navigate to={'/'} />} />
       </>
     )

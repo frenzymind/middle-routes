@@ -1,9 +1,21 @@
 import { Link, Outlet } from 'react-router'
 import classes from './MainLayout.module.css'
 import { useAuth } from '../shared/providers/auth-provider/auth-context'
+import { Suspense, useState } from 'react'
+
+const ErrorComponent = () => {
+  throw Error('heck')
+  return <p>should never render this</p>
+}
 
 export function MainLayout() {
   const { isAuth } = useAuth()
+  const [showErrorComponent, setShowErrorComponent] = useState(false)
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const breakApp = () => {
+    setShowErrorComponent(true)
+  }
 
   const privateLinks: JSX.Element[] = isAuth
     ? [
@@ -15,6 +27,9 @@ export function MainLayout() {
         </li>,
         <li>
           <Link to='episodes'>Эпизоды</Link>
+        </li>,
+        <li>
+          <button onClick={breakApp}>Сломать</button>
         </li>,
       ]
     : []
@@ -31,7 +46,10 @@ export function MainLayout() {
           </ul>
         </div>
       </div>
-      <Outlet />
+      {showErrorComponent && <ErrorComponent />}
+      <Suspense fallback={<h2>Загрузка страницы...</h2>}>
+        <Outlet />
+      </Suspense>
     </>
   )
 }
