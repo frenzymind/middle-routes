@@ -35,3 +35,5 @@ export function LoginPage() {
     </Card>
   )
 }
+
+export default LoginPage

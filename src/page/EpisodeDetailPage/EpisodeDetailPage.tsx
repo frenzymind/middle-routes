@@ -36,3 +36,5 @@ export function EpisodeDetailPage() {
     )
   )
 }
+
+export default EpisodeDetailPage

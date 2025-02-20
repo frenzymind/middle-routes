@@ -78,3 +78,5 @@ export function LocationPage() {
     </InfinityScroll>
   )
 }
+
+export default LocationPage

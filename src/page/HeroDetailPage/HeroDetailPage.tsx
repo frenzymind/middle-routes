@@ -37,3 +37,4 @@ export function HeroDetailPage() {
     )
   )
 }
+export default HeroDetailPage

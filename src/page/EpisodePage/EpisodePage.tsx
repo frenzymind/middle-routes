@@ -78,3 +78,5 @@ export function EpisodePage() {
     </InfinityScroll>
   )
 }
+
+export default EpisodePage

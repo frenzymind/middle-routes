@@ -36,3 +36,4 @@ export function LocationDetailPage() {
     )
   )
 }
+export default LocationDetailPage
