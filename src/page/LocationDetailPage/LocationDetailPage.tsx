@@ -1,22 +1,38 @@
+import { useEffect } from 'react'
 import { useParams } from 'react-router'
+import { useFetch } from '../../shared/hook/useFetch'
 import { Card } from '../../shared/ui/Card/Card'
-import locations from '../../data/location.json'
+import { ILocation } from '../LocationsPage/types'
 
 export function LocationDetailPage() {
   const { id } = useParams<{ id: string }>()
 
-  const location = locations.find(h => h.id === Number(id))
+  const { data, error, isLoading, sendRequest } = useFetch<ILocation>(`https://rickandmortyapi.com/api/location/${id}`)
 
-  if (!location) {
-    return <h2>Локация не найдена</h2>
+  useEffect(() => {
+    sendRequest()
+  }, [])
+
+  if (isLoading) {
+    return <h2>Загрузка...</h2>
+  }
+
+  if (!data && !error) {
+    return <h2>Герой не найден</h2>
+  }
+
+  if (error) {
+    return <h2>Ошибка получения данных</h2>
   }
 
   return (
-    <Card hover={false}>
-      <p>Имя: {location.name}</p>
-      <p>Измерение: {location.dimension}</p>
-      <p>Тип: {location.type}</p>
-      <p>Создан: {new Date(location.created).toLocaleString()}</p>
-    </Card>
+    data && (
+      <Card hover={false}>
+        <p>Имя: {data.name}</p>
+        <p>Измерение: {data.dimension}</p>
+        <p>Тип: {data.type}</p>
+        <p>Создан: {new Date(data.created).toLocaleString()}</p>
+      </Card>
+    )
   )
 }
