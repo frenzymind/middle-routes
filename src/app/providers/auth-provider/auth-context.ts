@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { IAuthContextValue } from '../../types/auth-context'
+import { IAuthContextValue } from './model/auth-contex'
 
 export const AuthContext = createContext<IAuthContextValue>({
   isAuth: false,
