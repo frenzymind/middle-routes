@@ -1,10 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import App from './app/App.tsx'
 import { BrowserRouter } from 'react-router'
-import { AuthProvider } from './shared/providers/auth-provider/auth-provider.tsx'
-import { ErrorBoundary } from './shared/hoc/ErrorBoundary.tsx'
+import { AuthProvider } from './app/providers/auth-provider/auth-provider.tsx'
+import { ErrorBoundary } from './app/providers/ErrorBoundary.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

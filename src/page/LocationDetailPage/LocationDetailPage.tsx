@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useFetch } from '../../shared/hook/useFetch'
 import { Card } from '../../shared/ui/Card/Card'
-import { ILocation } from '../LocationsPage/types'
+import { ILocation } from '../LocationsPage/model/types/location'
 
 export function LocationDetailPage() {
   const { id } = useParams<{ id: string }>()

@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router'
 import classes from './MainLayout.module.css'
-import { useAuth } from '../shared/providers/auth-provider/auth-context'
+import { useAuth } from '../providers/auth-provider/auth-context'
 import { Suspense, useState } from 'react'
 
 const ErrorComponent = () => {

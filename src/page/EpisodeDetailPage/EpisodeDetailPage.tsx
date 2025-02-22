@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useFetch } from '../../shared/hook/useFetch'
 import { Card } from '../../shared/ui/Card/Card'
-import { IEpisode } from '../EpisodePage/types'
+import { IEpisode } from '../EpisodePage/model/types/episode'
 
 export function EpisodeDetailPage() {
   const { id } = useParams<{ id: string }>()

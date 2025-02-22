@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { InfinityScroll } from '../../shared/hoc/InfinityScroll'
 import { useFetch } from '../../shared/hook/useFetch'
-import { useSortParams } from '../../shared/hook/useSortParams/useSortParams'
+import { useSortParams } from '../../shared/hook/useSortParams'
 import { sortDate } from '../../shared/lib/sortDate'
 import { IRickAndMortyResponse } from '../../shared/types/api'
 import { ISortOrder } from '../../shared/types/sort'
 import { Card } from '../../shared/ui/Card/Card'
 import { List } from '../../shared/ui/List/LIst'
 import { Sort } from '../../shared/ui/Sort/Sort'
-import { ILocation } from './types'
+import { ILocation } from './model/types/location'
 
 export function LocationPage() {
   const [order, setOrder] = useSortParams()

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router'
 import { Card } from '../../shared/ui/Card/Card'
 import { useFetch } from '../../shared/hook/useFetch'
-import { IHero } from '../HeroPage/types'
+import { IHero } from '../HeroPage/model/types/hero'
 import { useEffect } from 'react'
 
 export function HeroDetailPage() {

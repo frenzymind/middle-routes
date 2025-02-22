@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useAuth } from '../../shared/providers/auth-provider/auth-context'
+import { useAuth } from '../../app/providers/auth-provider/auth-context'
 import { Card } from '../../shared/ui/Card/Card'
 import { ILoginFormEvent } from './model/types/login-form'
 

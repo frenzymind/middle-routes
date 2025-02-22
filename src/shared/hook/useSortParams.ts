@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
-import { ISortOrder, SORT_PARAM, SORT_ORDER } from '../../types/sort'
+import { ISortOrder, SORT_PARAM, SORT_ORDER } from '../types/sort'
 
 export function useSortParams(): [ISortOrder, (newOrder: ISortOrder) => void] {
   const [params, setParams] = useSearchParams()
