@@ -4,7 +4,7 @@ import { AuthContext } from './auth-context'
 const USER = { username: 'admin', password: 'qwerty' }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [isAuth, setAuth] = useState(false)
+  const [isAuth, setAuth] = useState(true)
 
   const login = (username: string, password: string) => {
     if (username === USER.username && password === USER.password) {

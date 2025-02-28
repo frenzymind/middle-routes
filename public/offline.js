@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+module.exports = `<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,8 +13,7 @@
     <title>Rick and Morty</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script src="register-sw.js"></script>
+    <h1>Нет интернета</h1>
+    <a href="/">Go home</a>
   </body>
-</html>
+</html>`
